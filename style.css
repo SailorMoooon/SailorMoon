@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vw + 1vh)
+}
+
+p {
+    font-weight: 900;
+}
+
+body {
+    background-color: rgb(32, 32, 32);
+    color: #fff; /*можно убрать когда будем менять цвета*/
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.55;
+}
+.main-header {
+    position: relative;
+
+}
+.main-header::after {
+    content: '';
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: calc(var(--index) * 8);
+    background-image: url(images/poloska2.png) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.5);
+    opacity: 0.9;
+
+}
+.layers {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.layers_4 {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 0;
+}
+.layers_3 {
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+    
+}
+.layers_2 {
+    transform: translate3d(0, calc(var(--scrollTop) / 4.5), 0);
+}
+.layers_1 {
+    transform: translate3d(0, calc(var(--scrollTop) / 6.4), 0);
+    z-index: 2;
+}
+.layer_header {
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    /*цвет не забыть поставить*/
+    /*text-shadow 0 0 15px и цвет для тени*/
+}
+.P_layers {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.P-layers_3 {
+    transform: translate3d(0, calc(var(--scrollTop) / 19), 0);
+    z-index: 0;
+}
+.P-layers_2 {
+    transform: translate3d(0, calc(var(--scrollTop) / 12), 0);
+}
+.P-layers_1 {
+    transform: translate3d(0, calc(var(--scrollTop) / 15), 0);
+    z-index:2;
+}
+.peshera {
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / -10.5), 0);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    /*цвет не забыть поставить*/
+    /*text-shadow 0 0 15px и цвет для тени*/
+}
+.layers_title{
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 2.25); 
+}
+.peshera_title{
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 2.25); 
+}
+.top-p{
+    text-shadow: #dbe09e 1px 5px 12px;
+}
+.top-p2{
+    text-shadow: #e09e9e 1px -3px 10px;
+}
+.top-p3{
+    text-shadow: #e09e9e 1px -3px 10px;
+}
+.layers_caption {
+    font-size: calc(var(--index) / 1.175);
+    letter-spacing: calc(var(--index) / 3.5); 
+}
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+.main-article {
+ 
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: #fff; /*поменять*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+.main-article_header{
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    transform: translate3d(0, calc(var(--scrollTop) / -20), 0);
+    will-change: transform;
+}
+.main-article_paragraph {
+    max-width: calc(var(--index) * 34);
+    font-size: calc(var(--index) * .9);
+    transform: translate3d(0, calc(var(--scrollTop) / -20), 0);
+    will-change: transform;
+}
+.copy {
+    position: absolute;
+    bottom: calc(var(--index) * 2.5);
+    opacity: .45;
+    font-size: calc(var(--index) * .75);
+}
+.card {
+    position: relative;
+    color: white;
+}
+.card_front {
+    z-index: 5;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform .8s cubic-bezier(.2,.85,.4,1.275);
+}
+.card_back{
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    right: 300px;
+    text-align: center;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    transition: transform .8s cubic-bezier(.2,.85,.4,1.275);
+}
+.card:hover .card_back {
+    transform: rotateY(0deg);
+    z-index: 3;
+}
+.card:hover .card_front {
+    transform: rotateY(180deg);
+    z-index: 2;
+}
